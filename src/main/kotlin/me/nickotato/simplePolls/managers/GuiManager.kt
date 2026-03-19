@@ -27,6 +27,7 @@ object GuiManager: Listener {
 
     @EventHandler
     fun onInventoryClose(event: InventoryCloseEvent) {
-        openGuis.remove(event.player.name)
+        val gui = openGuis.remove(event.player.name) ?: return
+        gui.onClose(event.player as Player)
     }
 }

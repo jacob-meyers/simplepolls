@@ -16,7 +16,7 @@ import java.time.Duration
 import java.time.LocalDateTime
 
 class ManagePollGui(private val poll: Poll) :
-    Gui(Component.text("§3Manage Poll"), 27) {
+    Gui(Component.text("§8Manage Poll"), 27) {
 
     private val size = 27
 
@@ -131,7 +131,7 @@ class ManagePollGui(private val poll: Poll) :
     }
 
     private fun setInfo() {
-        val item = ItemStack(Material.PAPER)
+        val item = ItemStack(Material.OAK_SIGN)
         val meta = item.itemMeta
 
         val now = LocalDateTime.now()
@@ -182,7 +182,7 @@ class ManagePollGui(private val poll: Poll) :
 
             "edit_question" -> {
                 player.closeInventory()
-                PollChatListener.requestInput(player) { input ->
+                PollChatListener.requestInput(player, PollChatListener.InputType.NAME) { input ->
                     Bukkit.getScheduler().runTask(SimplePolls.instance, Runnable {
                         poll.question = input
                         player.sendMessage("§aQuestion updated.")
@@ -198,7 +198,7 @@ class ManagePollGui(private val poll: Poll) :
                 }
 
                 player.closeInventory()
-                PollChatListener.requestInput(player) { input ->
+                PollChatListener.requestInput(player, PollChatListener.InputType.OPTION) { input ->
                     Bukkit.getScheduler().runTask(SimplePolls.instance, Runnable {
                         poll.options[input] = 0
                         player.sendMessage("§aOption added.")

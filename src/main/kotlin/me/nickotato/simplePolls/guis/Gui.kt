@@ -13,6 +13,9 @@ abstract class Gui(title: Component, size: Int) {
         player.openInventory(inventory)
     }
 
+    open fun onClose(player: Player) {
+    }
+
     abstract fun onClick(event: InventoryClickEvent)
 
     fun setItem(slot: Int, item: ItemStack) {

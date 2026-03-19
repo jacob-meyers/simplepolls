@@ -22,8 +22,8 @@ object PollsManager {
     }
 
 
-    fun createPoll(question: String, options: List<String>, durationHours: Long) {
-        val endsAt = durationHours.let { LocalDateTime.now().plusHours(durationHours) } // CHANGE BACK TO PLUS HOURS
+    fun createPoll(question: String, options: List<String>, durationSeconds: Long) {
+        val endsAt = durationSeconds.let { LocalDateTime.now().plusSeconds(durationSeconds) }
 
         val poll = Poll(
             id = nextId++,

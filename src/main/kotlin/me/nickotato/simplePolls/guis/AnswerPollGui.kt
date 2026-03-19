@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
 import kotlin.collections.iterator
 
-class AnswerPollGui(player: Player, val poll: Poll): Gui(Component.text("§6Managing Polls"),27) {
+class AnswerPollGui(player: Player, val poll: Poll): Gui(Component.text("§8Cast Your Vote"),27) {
 
     init {
         val name = ItemStack(Material.NAME_TAG, 1)
@@ -33,7 +33,7 @@ class AnswerPollGui(player: Player, val poll: Poll): Gui(Component.text("§6Mana
             val lore = mutableListOf<Component>(Component.text("${option.value} §7votes"))
             val vote = poll.votes[player.uniqueId.toString()]
             if (vote == option.key) {
-                lore.add(Component.text("§cYou voted for this"))
+                lore.add(Component.text("§aYou voted for this"))
             }
             meta.lore(lore)
 

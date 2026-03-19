@@ -7,7 +7,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
 
-class MainPollGui(player: Player): Gui(Component.text("§6Polls Menu"), 27) {
+class MainPollGui(player: Player): Gui(Component.text("§8Polls Menu"), 27) {
     init {
         val view = ItemStack(Material.PAPER, 1)
         val viewMeta = view.itemMeta
@@ -17,7 +17,7 @@ class MainPollGui(player: Player): Gui(Component.text("§6Polls Menu"), 27) {
 
         val manage = ItemStack(Material.WRITTEN_BOOK, 1)
         val manageMeta = manage.itemMeta
-        manageMeta.displayName(Component.text("§2Manage Polls"))
+        manageMeta.displayName(Component.text("§3Manage Polls"))
         if (!player.hasPermission("polls.manage")) {
             manageMeta.lore(listOf<Component>(Component.text("§cYou don't have permission to manage polls")))
         }
@@ -38,7 +38,7 @@ class MainPollGui(player: Player): Gui(Component.text("§6Polls Menu"), 27) {
                     return
                 }
 
-                GuiManager.open(ManagePollsGui(), player)
+                GuiManager.open(ManagePollsGui(player), player)
             }
             11 -> {
                 GuiManager.open(ViewPollsGui(player), player)

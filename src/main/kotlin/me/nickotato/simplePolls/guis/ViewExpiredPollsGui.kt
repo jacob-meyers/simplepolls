@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.BookMeta
 import java.time.LocalDateTime
 
-class ViewExpiredPollsGui: Gui(Component.text("§6Viewing Expired Polls"),54) {
+class ViewExpiredPollsGui: Gui(Component.text("§8Viewing Expired Polls"),54) {
     private var page = 1
     private val air = ItemStack(Material.AIR)
 

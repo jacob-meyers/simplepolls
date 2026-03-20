@@ -22,7 +22,7 @@ class PlayerJoinListener : Listener {
             player.sendMessage("§aYou have §e$unreadCount §aactive poll(s) you haven't voted on yet.")
             val message = Component.text("§7Use ")
                 .append(
-                    Component.text("§3/poll")
+                    Component.text("§3/poll ")
                         .clickEvent(ClickEvent.runCommand("/poll"))
                 )
                 .append(Component.text("§7to vote."))
